@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KantoBoard</title>
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+
+    <!-- Leaflet Stylesheet -->
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+            integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+            crossorigin=""
+    />
+    <!-- Leaflet JS -->
+    <script
+            src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+            crossorigin=""
+    ></script>
+
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./main.js"></script>
+    <script defer src="./pokemonList.js"></script>
+    <script defer src="./trainerList.js"></script>
+    <script defer src="./map.js"></script>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <span>
+            <button id="frontpage-button" class="main-section-button">KantoBoard</button>
+        </span>
+        <ul class="nav-list">
+            <li>
+                <button id="pokemon-button" class="main-section-button burger-menu-item">Pokémon</button>
+            </li>
+            <li>
+                <button id="trainers-button" class="main-section-button burger-menu-item">Trainers</button>
+            </li>
+            <li>
+                <button id="gyms-button" class="main-section-button burger-menu-item">Gyms</button>
+            </li>
+            <li>
+                <button id="map-button" class="main-section-button burger-menu-item">Map</button>
+            </li>
+            <li>
+                <button id="profile-button" class="main-section-button burger-menu-item">Profile</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Front page news section -->
+    <section id="news-section" class="main-section">
+        <h2>Latest in Kanto</h2>
+        <div>
+            <div class="news-entry">
+                <h3>Main Title</h3>
+                <h4>Sub-title</h4>
+            </div>
+            <div class="news-entry">
+                <h3>Main Title 2</h3>
+                <h4>Sub-title 2</h4>
+            </div>
+        </div>
+
+    </section>
+
+        <!-- Pokémon list section
+             Pokemon Image source:
+             https://www.pokemon.com/us/pokedex
+             https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png -->
+    <section id="pokemon-section" class="main-section">
+
+    </section>
+
+    <!-- Trainers list section -->
+    <section id="trainer-section" class="main-section">
+
+    </section>
+
+    <!-- Gyms list section -->
+    <section id="gym-section" class="main-section">
+        <p>Gyms list</p>
+    </section>
+
+    <!-- Map section
+         Image source:
+         https://archives.bulbagarden.net/media/upload/2/25/LGPE_Kanto_Map.png -->
+    <section id="map-section" class="main-section">
+        <h2>Map of Kanto Region</h2>
+        <div id="kanto-map"></div>
+    </section>
+
+    <!-- Profile section -->
+    <section id="profile-section" class="main-section">
+        <p>Profile information</p>
+    </section>
+
+</main>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>
