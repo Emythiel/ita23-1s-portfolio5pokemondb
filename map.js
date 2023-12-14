@@ -1,3 +1,6 @@
+const mapHeaderButton = document.querySelector('#map-button');
+const mapSection = document.querySelector('#map-section');
+
 // Initial map setup
 const kantoMap = L.map('kanto-map', {
     crs: L.CRS.Simple,
@@ -16,83 +19,43 @@ kantoMap.fitBounds(bounds);
 // Set default view and zoom
 kantoMap.setView([909, 1285.5], -1.2);
 
-// Store location details, primarily for latitude and longitude for map markers
-// Should've been in the MySQL DB, but I didn't have time
-const townLocationDetails = [
-    {
-        name: 'Pallet Town',
-        population: 10,
-        lat: 640,
-        lon: 600,
-    },
-    {
-        name: 'Viridian City',
-        population: 34,
-        lat: 975,
-        lon: 625,
-    },
-    {
-        name: 'Pewter City',
-        population: 30,
-        lat: 1450,
-        lon: 650
-    },
-    {
-        name: 'Cerulean City',
-        population: 33,
-        lat: 1490,
-        lon: 1665,
-    },
-    {
-        name: 'Vermilion City',
-        population: 34,
-        lat: 800,
-        lon: 1655,
-    },
-    {
-        name: 'Lavender Town',
-        population: 30,
-        lat: 1160,
-        lon: 2275,
-    },
-    {
-        name: 'Celadon City',
-        population: 68,
-        lat: 1175,
-        lon: 1225,
-    },
-    {
-        name: 'Fuchsia City',
-        population: 36,
-        lat: 450,
-        lon: 1295,
-    },
-    {
-        name: 'Saffron City',
-        population: 47,
-        lat: 1170,
-        lon: 1660,
-    },
-    {
-        name: 'Cinnabar Island',
-        population: 33,
-        lat: 130,
-        lon: 615,
-    }
-];
 
-// Loop through the locations and add tooltips
-townLocationDetails.forEach((town) => {
+// Fetch town data from API
+let fetchedTownData = false;
+function getTownsData() {
+    // Check if list has already been fetched
+    if (fetchedTownData) {
+        return;
+    }
+
+    fetch(
+        'http://localhost:3000/towns',
+        {
+            method: 'GET'
+        }
+    )
+        .then(response => response.json())
+        .then(townData => {
+            townData.forEach(addTownDataToMap);
+            fetchedTownData = true;
+        })
+        .catch(error => {
+            console.log('Server Error: ', error.message);
+        });
+}
+
+function addTownDataToMap(town) {
     L.tooltip({
         direction: 'top',
         offset: [0, -10],
         permanent: true
     })
-        .setLatLng([town.lat, town.lon])
+        .setLatLng([town.latitude, town.longitude])
         .setContent(
             `<b>${town.name}</b><br>` +
             `Population: ${town.population}`,
         )
         .addTo(kantoMap)
-});
+}
 
+mapHeaderButton.addEventListener('click', getTownsData);

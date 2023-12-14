@@ -340,7 +340,7 @@ main {
         border: 2px solid black;
         border-radius: 16px;
         box-shadow: var(--background-accent) 0 0 16px;
-        width: 600px;
+        width: 575px;
         margin: 16px 16px;
 
         & .trainer-image-container {

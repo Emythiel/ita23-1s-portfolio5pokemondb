@@ -44,7 +44,7 @@ app.get('/pokemon', (req, res)=> {
 
 // Get list of all towns
 app.get('/towns', (req, res) => {
-    connection.query('SELECT `name` FROM towns', (error, results) => {
+    connection.query('SELECT `name`, population, latitude, longitude FROM towns', (error, results) => {
         res.send(results);
     });
 })
