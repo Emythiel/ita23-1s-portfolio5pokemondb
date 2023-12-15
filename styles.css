@@ -40,6 +40,7 @@ body {
     color: var(--text);
     font-family: "Calibri", serif;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* Header / Navigation Bar styling */
@@ -118,7 +119,9 @@ main {
         width: 100%;
         margin: auto;
         position: absolute;
-
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
 
         &:first-child {
             opacity: 1;
